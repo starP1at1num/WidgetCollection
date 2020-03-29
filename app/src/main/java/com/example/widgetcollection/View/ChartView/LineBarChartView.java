@@ -130,7 +130,7 @@ public class LineBarChartView extends BaseChartView {
         paint.setTextSize(mYUnitTextSize);
         if (!chartMap.isSingleType()) {
             textWidth = paint.measureText(chartMap.getAnotherYUnitText());
-            canvas.drawText(chartMap.getAnotherYUnitText(), this.getWidth() - MarginRight
+            canvas.drawText(chartMap.getAnotherYUnitText(), this.getWidth()
                             - textWidth,
                     yPoint - yLength - mYLabelSize - mYLabelSize
                             / 5, paint);
@@ -214,7 +214,7 @@ public class LineBarChartView extends BaseChartView {
             }
             if (!chartMap.isSingleType()) {
                 for (float y : anotherYCoordinateList) {
-                    canvas.drawText(y + "", this.getWidth() - MarginLeft,
+                    canvas.drawText(y + "", this.getWidth() - MarginLeft / 2,
                             getAnotherYPosition(y) + mYLabelSize / 3, paint);
                 }
             }
@@ -337,6 +337,7 @@ public class LineBarChartView extends BaseChartView {
         int currentBarChart = 0;
         //获取需要绘制的柱状图总数
         int size = barChartList.size();
+        paint.setStyle(Paint.Style.FILL);
 
         for (ChartVO chartVO : barChartList) {
             for (PointVO pointVO : chartVO.getPointList()) {
@@ -348,7 +349,7 @@ public class LineBarChartView extends BaseChartView {
                     //混合类型时柱状图按右边的Y轴
                     top = getAnotherYPosition(pointVO.getY_coordinate()) + lineStrokeWidth;
                 }
-                left = getPosition(pointVO.getX_coordinate(), 0)[0] + xFirstPointOffset - barWidth / 2 - ((size / 2) - currentBarChart) * barWidth;
+                left = getPosition(pointVO.getX_coordinate(), 0)[0] - ((size / 2) - currentBarChart) * barWidth;
                 right = left + barWidth;
                 bottom = yPoint;
                 // 每次valueAnimator更新时重绘最新top值
@@ -362,6 +363,7 @@ public class LineBarChartView extends BaseChartView {
      * 画折线图
      */
     private void drawLineChart(Canvas canvas, Paint p) {
+        p.setStyle(Paint.Style.STROKE);
         for (int i = 0; i < measureList.size() || i < dstList.size(); i++) {
             float stop = measureList.get(i).getLength() * mCurrentValue;
             dstList.get(i).reset();

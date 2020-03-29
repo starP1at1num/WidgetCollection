@@ -18,7 +18,7 @@
         app:line_stroke_width="3sp"
         app:margin_bottom="100dp"
         app:margin_left="100dp"
-        app:margin_right="60dp"
+        app:margin_right="100dp"
         app:margin_top="60dp"
         app:rect_background_color="@color/saswell_power_time"
         app:second_data_line_color="@color/saswell_setpoint_temp"
