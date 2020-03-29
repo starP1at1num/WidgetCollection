@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="BaseChartView">
+        <attr name="ylabel_text_size" format="dimension"/>
+        <attr name="xlabel_text_size" format="dimension"/>
+        <attr name="margin_top" format="dimension"/>
+        <attr name="margin_bottom" format="dimension"/>
+        <attr name="margin_left" format="dimension"/>
+        <attr name="margin_right" format="dimension"/>
+        <attr name="bar_width" format="dimension"/>
+        <attr name="line_stroke_width" format="dimension"/>
+        <attr name="data_stroke_width" format="dimension"/>
+        <attr name="circle_radius" format="dimension"/>
+        <attr name="line_color" format="color"/>
+        <attr name="unit_color" format="color"/>
+        <attr name="background_color" format="color"/>
+        <attr name="x_unit_text" format="string"/>
+        <attr name="y1_unit_text" format="string"/>
+        <attr name="y2_unit_text" format="string"/>
+        <attr name="y_unit_text_size" format="dimension"/>
+        <attr name="x_unit_text_size" format="dimension"/>
+        <attr name="first_data_line_color" format="color"/>
+        <attr name="second_data_line_color" format="color"/>
+        <attr name="rect_background_color" format="color"/>
+        <attr name="x_first_point_offset" format="dimension"/>
+        <attr name="duration" format="integer"/>
+        <attr name="x_section" format="integer"/>
+        <attr name="y_section" format="integer"/>
+        <attr name="single_type" format="boolean"/>
+        <attr name="show_x_divider" format="boolean"/>
+        <attr name="show_position" format="boolean"/>
+        <attr name="show_y_divider" format="boolean"/>
+        <attr name="contain_fault" format="boolean"/>
+        <attr name="x_fault" format="dimension"/>
+        <attr name="y_fault" format="dimension"/>
+    </declare-styleable>
+</resources>
