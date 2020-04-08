@@ -376,11 +376,13 @@ public class LineBarChartView extends BaseChartView {
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-        drawUnit(canvas);
-        drawCoordinator(canvas);
-        drawLineCircle(canvas);
-        drawLineChart(canvas, paint);
-        drawBarChart(canvas);
+        if(null != chartMap) {
+            drawUnit(canvas);
+            drawCoordinator(canvas);
+            drawLineCircle(canvas);
+            drawLineChart(canvas, paint);
+            drawBarChart(canvas);
+        }
     }
 
     @Override

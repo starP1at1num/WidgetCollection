@@ -7,32 +7,46 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <com.example.widgetcollection.View.ChartView.LineBarChartView
-        android:id="@+id/line_bar_chart_view"
+<!--    <com.example.widgetcollection.View.ChartView.LineBarChartView-->
+<!--        android:id="@+id/line_bar_chart_view"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        app:circle_radius="6sp"-->
+<!--        app:data_stroke_width="2sp"-->
+<!--        app:first_data_line_color="@color/saswell_indoor_temp"-->
+<!--        app:line_color="@color/saswell_yellow"-->
+<!--        app:line_stroke_width="3sp"-->
+<!--        app:margin_bottom="100dp"-->
+<!--        app:margin_left="100dp"-->
+<!--        app:margin_right="100dp"-->
+<!--        app:margin_top="60dp"-->
+<!--        app:rect_background_color="@color/saswell_power_time"-->
+<!--        app:second_data_line_color="@color/saswell_setpoint_temp"-->
+<!--        app:unit_color="@color/saswell_light_grey"-->
+<!--        app:x_first_point_offset="30sp"-->
+<!--        app:bar_width="20dp"-->
+<!--        app:x_unit_text_size="25sp"-->
+<!--        app:xlabel_text_size="23sp"-->
+<!--        app:y_unit_text_size="28sp"-->
+<!--        app:ylabel_text_size="30sp"-->
+<!--        app:show_position="true"-->
+<!--        app:show_x_divider="false"-->
+<!--        app:show_y_divider="false"-->
+<!--        app:contain_fault="true"-->
+<!--        app:duration="2000"/>-->
+
+    <com.example.widgetcollection.View.PieGraph.PieGraphView
+        android:id="@+id/pie_graph"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:circle_radius="6sp"
-        app:data_stroke_width="2sp"
-        app:first_data_line_color="@color/saswell_indoor_temp"
-        app:line_color="@color/saswell_yellow"
-        app:line_stroke_width="3sp"
-        app:margin_bottom="100dp"
-        app:margin_left="100dp"
-        app:margin_right="100dp"
-        app:margin_top="60dp"
-        app:rect_background_color="@color/saswell_power_time"
-        app:second_data_line_color="@color/saswell_setpoint_temp"
-        app:unit_color="@color/saswell_light_grey"
-        app:x_first_point_offset="30sp"
-        app:bar_width="20dp"
-        app:x_unit_text_size="25sp"
-        app:xlabel_text_size="23sp"
-        app:y_unit_text_size="28sp"
-        app:ylabel_text_size="30sp"
-        app:show_position="true"
-        app:show_x_divider="false"
-        app:show_y_divider="false"
-        app:contain_fault="true"
-        app:duration="2000"/>
+        app:inner_radius="100dp"
+        app:outer_radius="200dp"
+        app:duration="2000"
+        app:center_text_size="20sp"
+        app:show_animation="true"
+        app:background_color="@color/saswell_white"
+        app:data_in_graph="false"
+        app:data_text_size="20sp"
+        app:percentage_mode="false"/>
 
 </LinearLayout>

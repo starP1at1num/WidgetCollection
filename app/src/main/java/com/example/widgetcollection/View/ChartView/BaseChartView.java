@@ -104,7 +104,7 @@ public class BaseChartView extends View {
     public BaseChartView(Context context, AttributeSet attrs) {
         super(context, attrs);
         typedArray = context.obtainStyledAttributes(attrs, R.styleable.BaseChartView);
-        setAttrrbutesValue();
+        setAttrbutesValue();
         init();
         typedArray.recycle();
     }
@@ -159,7 +159,7 @@ public class BaseChartView extends View {
     }
 
     //根据attribute设置属性
-    private void setAttrrbutesValue() {
+    private void setAttrbutesValue() {
         float MarginTopPx = typedArray.getDimension(
                 R.styleable.BaseChartView_margin_top, 500);
         float MarginBottomPx = typedArray.getDimension(
