@@ -11,16 +11,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2003f847-591f-431c-afdc-ed67a7df581c" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/widgetcollection/JavaBean/PieGraph/BarPieVO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/widgetcollection/View/PieGraph/BarPieGraph.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.4.1/executionHistory/executionHistory.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.4.1/fileHashes/fileHashes.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/widgetcollection/MainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/widgetcollection/MainActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/widgetcollection/View/PieGraph/PieGraphView.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/widgetcollection/View/PieGraph/PieGraphView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/attrs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/attrs.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -69,8 +60,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/widgetcollection/MainActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="482">
-              <caret line="96" column="41" selection-start-line="96" selection-start-column="41" selection-end-line="96" selection-end-column="41" />
+            <state relative-caret-position="158">
+              <caret line="84" column="4" lean-forward="true" selection-start-line="84" selection-start-column="4" selection-end-line="84" selection-end-column="4" />
             </state>
           </provider>
         </entry>
@@ -90,7 +81,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="37">
+            <state relative-caret-position="294">
               <caret line="46" column="34" selection-start-line="46" selection-start-column="34" selection-end-line="46" selection-end-column="34" />
             </state>
           </provider>
@@ -187,8 +178,8 @@
         <option value="$PROJECT_DIR$/app/src/main/res/values/attrs.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/widgetcollection/View/PieGraph/PieGraphView.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/widgetcollection/JavaBean/PieGraph/BarPieVO.java" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/widgetcollection/View/PieGraph/BarPieGraph.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/widgetcollection/MainActivity.java" />
       </list>
     </option>
@@ -492,15 +483,21 @@
       <option name="project" value="LOCAL" />
       <updated>1586361861886</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="添加螺旋图(我自己取的名字)控件,中心可以显示图片或文字,数据部分可选择显示存颜色矩形或者自定义图片,可开启动画效果(延伸动画或者旋转动画),可自定义圆、文字大小">
+      <created>1586456638354</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1586456638354</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="Captures" order="0" side_tool="true" weight="0.25" />
-      <window_info active="true" content_ui="combo" id="Project" order="1" sideWeight="0.49658704" visible="true" weight="0.2647504" />
+      <window_info content_ui="combo" id="Project" order="1" sideWeight="0.49658704" visible="true" weight="0.2647504" />
       <window_info id="Structure" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" sideWeight="0.50341296" side_tool="true" weight="0.2647504" />
       <window_info id="Build Variants" order="4" side_tool="true" />
@@ -530,7 +527,8 @@
     <MESSAGE value="花了两天时间主要是写了一个折线图和柱状图的自定义控件,支持单独绘制柱状图/折线图或者混合绘制,提供了非常多的参数设置图表的样式,支持xml或者代码创建控件,设置表格参数需要提供一个chartMapVO对象,图表的高度宽度是基于控件大小和参数大小自动设置的,就这样,下周准备开发雷达图和饼图" />
     <MESSAGE value="优化布局" />
     <MESSAGE value="添加自定义饼图控件,中心可以显示图片或文字,数据部分可选择显示百分比还是数量,数据可选择显示在图中还是图外,可自定义圆、文字大小,可设置是否开启动画" />
-    <option name="LAST_COMMIT_MESSAGE" value="添加自定义饼图控件,中心可以显示图片或文字,数据部分可选择显示百分比还是数量,数据可选择显示在图中还是图外,可自定义圆、文字大小,可设置是否开启动画" />
+    <MESSAGE value="添加螺旋图(我自己取的名字)控件,中心可以显示图片或文字,数据部分可选择显示存颜色矩形或者自定义图片,可开启动画效果(延伸动画或者旋转动画),可自定义圆、文字大小" />
+    <option name="LAST_COMMIT_MESSAGE" value="添加螺旋图(我自己取的名字)控件,中心可以显示图片或文字,数据部分可选择显示存颜色矩形或者自定义图片,可开启动画效果(延伸动画或者旋转动画),可自定义圆、文字大小" />
   </component>
   <component name="debuggerHistoryManager">
     <expressions id="evaluateExpression">
@@ -828,9 +826,19 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/widgetcollection/View/PieGraph/PieGraphView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-470">
+          <caret line="271" column="17" selection-start-line="271" selection-start-column="17" selection-end-line="271" selection-end-column="17" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="37">
+        <state relative-caret-position="294">
           <caret line="46" column="34" selection-start-line="46" selection-start-column="34" selection-end-line="46" selection-end-column="34" />
         </state>
       </provider>
@@ -850,20 +858,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/widgetcollection/View/PieGraph/PieGraphView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-470">
-          <caret line="271" column="17" selection-start-line="271" selection-start-column="17" selection-end-line="271" selection-end-column="17" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/widgetcollection/MainActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="482">
-          <caret line="96" column="41" selection-start-line="96" selection-start-column="41" selection-end-line="96" selection-end-column="41" />
+        <state relative-caret-position="158">
+          <caret line="84" column="4" lean-forward="true" selection-start-line="84" selection-start-column="4" selection-end-line="84" selection-end-column="4" />
         </state>
       </provider>
     </entry>
