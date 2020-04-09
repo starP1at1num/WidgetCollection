@@ -1,62 +1,83 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <attr name="margin_top" format="dimension"/>
-    <attr name="margin_bottom" format="dimension"/>
-    <attr name="margin_left" format="dimension"/>
-    <attr name="margin_right" format="dimension"/>
-    <attr name="background_color" format="color"/>
-    <attr name="duration" format="integer"/>
+    <attr name="margin_top" format="dimension" />
+    <attr name="margin_bottom" format="dimension" />
+    <attr name="margin_left" format="dimension" />
+    <attr name="margin_right" format="dimension" />
+    <attr name="background_color" format="color" />
+    <attr name="duration" format="integer" />
+    <attr name="show_animation" format="boolean" />
+    <attr name="data_text_color" format="color" />
+    <attr name="data_text_size" format="dimension" />
 
     <declare-styleable name="BaseChartView">
-        <attr name="ylabel_text_size" format="dimension"/>
-        <attr name="xlabel_text_size" format="dimension"/>
-        <attr name="margin_top"/>
-        <attr name="margin_bottom"/>
-        <attr name="margin_left"/>
-        <attr name="margin_right"/>
-        <attr name="bar_width" format="dimension"/>
-        <attr name="line_stroke_width" format="dimension"/>
-        <attr name="data_stroke_width" format="dimension"/>
-        <attr name="circle_radius" format="dimension"/>
-        <attr name="line_color" format="color"/>
-        <attr name="unit_color" format="color"/>
-        <attr name="background_color"/>
-        <attr name="x_unit_text" format="string"/>
-        <attr name="y1_unit_text" format="string"/>
-        <attr name="y2_unit_text" format="string"/>
-        <attr name="y_unit_text_size" format="dimension"/>
-        <attr name="x_unit_text_size" format="dimension"/>
-        <attr name="first_data_line_color" format="color"/>
-        <attr name="second_data_line_color" format="color"/>
-        <attr name="rect_background_color" format="color"/>
-        <attr name="x_first_point_offset" format="dimension"/>
-        <attr name="duration"/>
-        <attr name="x_section" format="integer"/>
-        <attr name="y_section" format="integer"/>
-        <attr name="single_type" format="boolean"/>
-        <attr name="show_x_divider" format="boolean"/>
-        <attr name="show_position" format="boolean"/>
-        <attr name="show_y_divider" format="boolean"/>
-        <attr name="contain_fault" format="boolean"/>
-        <attr name="x_fault" format="dimension"/>
-        <attr name="y_fault" format="dimension"/>
+        <attr name="ylabel_text_size" format="dimension" />
+        <attr name="xlabel_text_size" format="dimension" />
+        <attr name="margin_top" />
+        <attr name="margin_bottom" />
+        <attr name="margin_left" />
+        <attr name="margin_right" />
+        <attr name="bar_width" format="dimension" />
+        <attr name="line_stroke_width" format="dimension" />
+        <attr name="data_stroke_width" format="dimension" />
+        <attr name="circle_radius" format="dimension" />
+        <attr name="line_color" format="color" />
+        <attr name="unit_color" format="color" />
+        <attr name="background_color" />
+        <attr name="x_unit_text" format="string" />
+        <attr name="y1_unit_text" format="string" />
+        <attr name="y2_unit_text" format="string" />
+        <attr name="y_unit_text_size" format="dimension" />
+        <attr name="x_unit_text_size" format="dimension" />
+        <attr name="first_data_line_color" format="color" />
+        <attr name="second_data_line_color" format="color" />
+        <attr name="rect_background_color" format="color" />
+        <attr name="x_first_point_offset" format="dimension" />
+        <attr name="duration" />
+        <attr name="x_section" format="integer" />
+        <attr name="y_section" format="integer" />
+        <attr name="single_type" format="boolean" />
+        <attr name="show_x_divider" format="boolean" />
+        <attr name="show_position" format="boolean" />
+        <attr name="show_y_divider" format="boolean" />
+        <attr name="contain_fault" format="boolean" />
+        <attr name="x_fault" format="dimension" />
+        <attr name="y_fault" format="dimension" />
     </declare-styleable>
 
     <declare-styleable name="BasePieGraph">
-        <attr name="data_text_size" format="dimension"/>
-        <attr name="center_text_size" format="dimension"/>
-        <attr name="margin_top"/>
-        <attr name="margin_bottom"/>
-        <attr name="margin_left"/>
-        <attr name="margin_right"/>
-        <attr name="inner_radius" format="dimension"/>
-        <attr name="outer_radius" format="dimension"/>
-        <attr name="background_color"/>
-        <attr name="data_text_color" format="color"/>
-        <attr name="duration"/>
-        <attr name="show_animation" format="boolean"/>
-        <attr name="data_in_graph" format="boolean"/>
-        <attr name="percentage_mode" format="boolean"/>
+        <attr name="data_text_size"/>
+        <attr name="center_text_size" format="dimension" />
+        <attr name="margin_top" />
+        <attr name="margin_bottom" />
+        <attr name="margin_left" />
+        <attr name="margin_right" />
+        <attr name="inner_radius" format="dimension" />
+        <attr name="outer_radius" format="dimension" />
+        <attr name="background_color" />
+        <attr name="data_text_color"/>
+        <attr name="duration" />
+        <attr name="show_animation" />
+        <attr name="data_in_graph" format="boolean" />
+        <attr name="percentage_mode" format="boolean" />
+    </declare-styleable>
+
+    <declare-styleable name="BarPieGraph">
+        <attr name="duration" />
+        <attr name="margin_top" />
+        <attr name="margin_bottom" />
+        <attr name="margin_left" />
+        <attr name="margin_right" />
+        <attr name="show_animation" />
+        <attr name="background_color" />
+        <attr name="data_text_color"/>
+        <attr name="data_text_size"/>
+        <attr name="radius" format="dimension"/>
+        <attr name="inner_circle_color" format="color"/>
+        <attr name="animation_type">
+            <enum name="rotate" value="1"/>
+            <enum name="extend" value="2"/>
+        </attr>
     </declare-styleable>
 </resources>

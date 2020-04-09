@@ -11,9 +11,11 @@ import android.util.Log;
 import com.example.widgetcollection.JavaBean.Chart.ChartMapVO;
 import com.example.widgetcollection.JavaBean.Chart.ChartVO;
 import com.example.widgetcollection.JavaBean.Chart.PointVO;
+import com.example.widgetcollection.JavaBean.PieGraph.BarPieVO;
 import com.example.widgetcollection.JavaBean.PieGraph.PieVO;
 import com.example.widgetcollection.JavaBean.PieGraph.SectorVO;
 import com.example.widgetcollection.View.ChartView.LineBarChartView;
+import com.example.widgetcollection.View.PieGraph.BarPieGraph;
 import com.example.widgetcollection.View.PieGraph.PieGraphView;
 
 import java.util.ArrayList;
@@ -22,8 +24,9 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
     //    private LineBarChartView lineBarChartView;
-    private PieGraphView pieGraphView;
+    private BarPieGraph barPieGraph;
     private Bitmap test;
+    private Bitmap test2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,18 +60,45 @@ public class MainActivity extends AppCompatActivity {
 //        hashMap.put("key4", chart4);
 //        ChartMapVO chartMapVO = new ChartMapVO("单位1", "单位2","单位3", hashMap);
 //        lineBarChartView.addChartMap(chartMapVO);
+
+
+//        test = BitmapFactory.decodeResource(getResources(), R.mipmap.gongjvren1hao);
+//        pieGraphView = findViewById(R.id.pie_graph);
+//        ArrayList<SectorVO> list = new ArrayList<>();
+//        list.add(new SectorVO("数据1", 50, 0xFFFF9500));
+//        list.add(new SectorVO("数据2", 60, 0xFF104E8B));
+//        list.add(new SectorVO("数据3", 70, 0xFF6B8E23));
+//        list.add(new SectorVO("数据4", 50, 0xFF8EE5EE));
+//        list.add(new SectorVO("数据5", 60, 0xFFCD3333));
+//        list.add(new SectorVO("数据6", 70, 0xFF495c6f));
+//        PieVO pieVO = new PieVO(test, list);
+//        pieGraphView.setData(pieVO);
+
         test = BitmapFactory.decodeResource(getResources(), R.mipmap.gongjvren1hao);
-        pieGraphView = findViewById(R.id.pie_graph);
+        test2 = BitmapFactory.decodeResource(getResources(), R.mipmap.gongjvren2hao);
+        barPieGraph = findViewById(R.id.pie_graph);
         ArrayList<SectorVO> list = new ArrayList<>();
-        list.add(new SectorVO("数据1", 50, 0xFFFF9500));
-        list.add(new SectorVO("数据2", 60, 0xFF104E8B));
-        list.add(new SectorVO("数据3", 70, 0xFF6B8E23));
-        list.add(new SectorVO("数据4", 50, 0xFF8EE5EE));
-        list.add(new SectorVO("数据5", 60, 0xFFCD3333));
-        list.add(new SectorVO("数据6", 70, 0xFF495c6f));
-//        PieVO pieVO = new PieVO("总数据",0xFF3B3B3B, list);
-        PieVO pieVO = new PieVO(test, list);
-        pieGraphView.setData(pieVO);
+        list.add(new SectorVO("数据1", 30, 0xFFFF9500));
+        list.add(new SectorVO("数据2", 35, 0xFF104E8B));
+        list.add(new SectorVO("数据3", 40, 0xFF6B8E23));
+        list.add(new SectorVO("数据4", 45, 0xFF8EE5EE));
+        list.add(new SectorVO("数据5", 50, 0xFFCD3333));
+        list.add(new SectorVO("数据6", 55, 0xFF495c6f));
+        list.add(new SectorVO("数据7", 60, 0xFF495c6f));
+        list.add(new SectorVO("数据8", 65, 0xFF495c6f));
+        list.add(new SectorVO("数据9", 70, 0xFF495c6f));
+        list.add(new SectorVO("数据10", 75, 0xFF495c6f));
+        list.add(new SectorVO("数据11", 80, 0xFF495c6f));
+        list.add(new SectorVO("数据12", 85, 0xFF495c6f));
+        list.add(new SectorVO("数据13", 90, 0xFF495c6f));
+        list.add(new SectorVO("数据14", 95, 0xFF495c6f));
+        list.add(new SectorVO("数据15", 100, 0xFF495c6f));
+        list.add(new SectorVO("数据16", 105, 0xFF495c6f));
+        list.add(new SectorVO("数据17", 110, 0xFF495c6f));
+
+
+        BarPieVO barPieVO = new BarPieVO(test, list, test2);
+        barPieGraph.setData(barPieVO);
     }
 
     @Override
@@ -76,6 +106,10 @@ public class MainActivity extends AppCompatActivity {
         super.onDestroy();
         if (test != null) {
             test.recycle();
+            System.gc();
+        }
+        if (test2 != null) {
+            test2.recycle();
             System.gc();
         }
     }

@@ -262,6 +262,7 @@ public class PieGraphView extends BasePieGraph {
             m.setScale((float)(centerBound.right - centerBound.left) / src.getWidth(), (float)(centerBound.bottom - centerBound.top) / src.getHeight());
             Bitmap target = Bitmap.createBitmap(src, 0, 0, src.getWidth(), src.getHeight(), m, true);
             canvas.drawBitmap(target, centerBound.left, centerBound.top, centerPaint);
+            target.recycle();
         }
     }
 
