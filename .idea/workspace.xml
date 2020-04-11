@@ -11,14 +11,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2003f847-591f-431c-afdc-ed67a7df581c" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.4.1/executionHistory/executionHistory.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.4.1/fileHashes/fileHashes.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/widgetcollection/JavaBean/PieGraph/BarPieVO.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/widgetcollection/JavaBean/PieGraph/BarPieVO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/widgetcollection/MainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/widgetcollection/MainActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/widgetcollection/View/PieGraph/BarPieGraph.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/widgetcollection/View/PieGraph/BarPieGraph.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -185,7 +178,7 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="675" />
     <option name="y" value="-8" />
     <option name="width" value="699" />
@@ -491,11 +484,18 @@
       <option name="project" value="LOCAL" />
       <updated>1586456638354</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="优化螺旋图(我自己取的名字)控件,添加扇形和部分拉伸bitmap作为边缘部分,重构数据vo的构造方式,改为builder方式构造">
+      <created>1586584485875</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1586584485875</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="7" />
     <editor active="true" />
     <layout>
       <window_info id="Captures" order="0" side_tool="true" weight="0.25" />
@@ -530,7 +530,8 @@
     <MESSAGE value="优化布局" />
     <MESSAGE value="添加自定义饼图控件,中心可以显示图片或文字,数据部分可选择显示百分比还是数量,数据可选择显示在图中还是图外,可自定义圆、文字大小,可设置是否开启动画" />
     <MESSAGE value="添加螺旋图(我自己取的名字)控件,中心可以显示图片或文字,数据部分可选择显示存颜色矩形或者自定义图片,可开启动画效果(延伸动画或者旋转动画),可自定义圆、文字大小" />
-    <option name="LAST_COMMIT_MESSAGE" value="添加螺旋图(我自己取的名字)控件,中心可以显示图片或文字,数据部分可选择显示存颜色矩形或者自定义图片,可开启动画效果(延伸动画或者旋转动画),可自定义圆、文字大小" />
+    <MESSAGE value="优化螺旋图(我自己取的名字)控件,添加扇形和部分拉伸bitmap作为边缘部分,重构数据vo的构造方式,改为builder方式构造" />
+    <option name="LAST_COMMIT_MESSAGE" value="优化螺旋图(我自己取的名字)控件,添加扇形和部分拉伸bitmap作为边缘部分,重构数据vo的构造方式,改为builder方式构造" />
   </component>
   <component name="debuggerHistoryManager">
     <expressions id="evaluateExpression">
