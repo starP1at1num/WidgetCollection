@@ -95,9 +95,11 @@ public class MainActivity extends AppCompatActivity {
         list.add(new SectorVO("数据15", 100, 0xFF495c6f));
         list.add(new SectorVO("数据16", 105, 0xFF495c6f));
         list.add(new SectorVO("数据17", 110, 0xFF495c6f));
-
-
-        BarPieVO barPieVO = new BarPieVO(test, list, test2);
+        BarPieVO barPieVO = new BarPieVO.Builder()
+                .setCenter(test)
+                .setSector(100)
+                .setSectorList(list)
+                .create();
         barPieGraph.setData(barPieVO);
     }
 

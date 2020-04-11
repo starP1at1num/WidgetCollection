@@ -9,6 +9,7 @@ import android.graphics.Color;
 import android.graphics.Matrix;
 import android.graphics.Paint;
 import android.graphics.Rect;
+import android.graphics.RectF;
 import android.util.AttributeSet;
 import android.view.View;
 import android.view.animation.DecelerateInterpolator;
@@ -50,6 +51,8 @@ public class BarPieGraph extends View {
     private Rect dataRect;
     //数据用的辅助矩形
     private Rect dataTextRect;
+    //类型是扇形时用的辅助矩形
+    private RectF arcRect;
 
     protected TypedArray typedArray;
     //用户不额外设置布局时使用的默认值
@@ -86,9 +89,9 @@ public class BarPieGraph extends View {
     //数据集合
     private BarPieVO barPieVO;
 
-    float rectHeight;
     float startHeight, startProportion;
     float left, right, bottom;
+    int sectorPictureCutHeight;
     Bitmap src;
 
     public BarPieGraph(Context context) {
@@ -140,6 +143,7 @@ public class BarPieGraph extends View {
         //矩形画笔
         rectPaint = new Paint();
         rectPaint.setAntiAlias(true);
+        rectPaint.setStyle(Paint.Style.STROKE);
 
         //数据画笔
         dataPaint = new Paint();
@@ -246,15 +250,30 @@ public class BarPieGraph extends View {
             }
             rect = new Rect((int) xPoint - widthOffset, (int) yPoint - heightOffset, (int) xPoint + widthOffset, (int) yPoint + heightOffset);
         }
-        if (!barPieVO.isSectorIsPicture()) {
-            left = xPoint - barPieVO.getSectorRectWidth() / 2;
-            right = xPoint + barPieVO.getSectorRectWidth() / 2;
-            startHeight = barPieVO.getSectorRectHeight() + radius;
-        } else {
-            src = barPieVO.getSectorPicture();
-            left = xPoint - src.getWidth() / 2f;
-            right = xPoint + src.getWidth() / 2f;
-            startHeight = src.getHeight() + radius;
+        switch (barPieVO.getSectorType()) {
+            case BarPieVO.RECT:
+                left = xPoint - barPieVO.getSectorRectWidth() / 2;
+                right = xPoint + barPieVO.getSectorRectWidth() / 2;
+                startHeight = barPieVO.getSectorRectHeight();
+                break;
+            case BarPieVO.ARC:
+                startHeight = barPieVO.getSectorArcHeight();
+                break;
+            case BarPieVO.NORMAL_BITMAP:
+                src = barPieVO.getSectorPicture();
+                left = xPoint - src.getWidth() / 2f;
+                right = xPoint + src.getWidth() / 2f;
+                startHeight = src.getHeight();
+                break;
+            case BarPieVO.CUT_BITMAP:
+                src = barPieVO.getSectorPicture();
+                left = xPoint - src.getWidth() / 2f;
+                right = xPoint + src.getWidth() / 2f;
+                startHeight = src.getHeight();
+                sectorPictureCutHeight = barPieVO.getSectorPictureCutHeight();
+                break;
+            case 0:
+                break;
         }
         startProportion = barPieVO.getSectorVOList().get(0).getProportion();
         bottom = yPoint;
@@ -289,43 +308,123 @@ public class BarPieGraph extends View {
         //从y轴开始逆时针
         float top;
         Bitmap targetBitmap;
-
-        if (!barPieVO.isSectorIsPicture()) {
-            //周围是矩形时
-            for (int i = 0; i < n; i++) {
-                rectPaint.setColor(barPieVO.getSectorVOList().get(i).getColor());
-                if (i > 0) {
-                    //第一张图正常画,之后逆时针旋转
-                    //rotate是顺时针
-                    canvas.rotate(360 - proportion, xPoint, yPoint); //以矩形中心点旋转图形
-                }
-                top = yPoint - (barPieVO.getSectorVOList().get(i).getProportion() / startProportion) * startHeight;
-                if (showAnimation && animationType == extend) {
-                    top = bottom - mCurrentValue * (bottom - top);
-                }
-                top -= radius;
-                dataRect.set((int) left, (int) top, (int) right, (int) (bottom - radius));
-                canvas.drawRect(dataRect, rectPaint);
-            }
-        } else {
-            //周围是图片时
-            for (int i = 0; i < n; i++) {
-                if (i > 0) {
-                    //第一张图正常画,之后逆时针旋转
-                    //rotate是顺时针
-                    canvas.rotate(360 - proportion, xPoint, yPoint); //以矩形中心点旋转图形
-                }
-                top = yPoint - (barPieVO.getSectorVOList().get(i).getProportion() / startProportion) * startHeight;
-                if (showAnimation && animationType == extend) {
-                    top = bottom - mCurrentValue * (bottom - top);
-                }
-                top -= radius;
-                targetBitmap = Bitmap.createScaledBitmap(src, (int) (right - left), (int) (bottom-top), true);
-                canvas.drawBitmap(targetBitmap, left, top, rectPaint);
-            }
-        }
-        //转了一圈最后转回来
+        //以矩形中心点旋转图形,先旋转一次,让最后一条数据显示在90度上
         canvas.rotate(360 - proportion, xPoint, yPoint);
+        switch (barPieVO.getSectorType()) {
+            case BarPieVO.RECT:
+                drawSectorRect(canvas, n);
+                break;
+            case BarPieVO.ARC:
+                drawSectorArc(canvas, n);
+                break;
+            case BarPieVO.NORMAL_BITMAP:
+                drawSectorBitmap(canvas, n);
+                break;
+            case BarPieVO.CUT_BITMAP:
+                drawSectorCutBitmap(canvas, n);
+                break;
+            case 0:
+                break;
+        }
+    }
+
+    /**
+     * 绘制扇形矩形,从第0个到第n个
+     */
+    private void drawSectorRect(Canvas canvas, int n) {
+        float top;
+        for (int i = 0; i < n; i++) {
+            rectPaint.setColor(barPieVO.getSectorVOList().get(i).getColor());
+            if (i > 0) {
+                //第一张图正常画,之后逆时针旋转
+                //rotate是顺时针
+                canvas.rotate(360 - proportion, xPoint, yPoint); //以矩形中心点旋转图形
+            }
+            top = yPoint - (barPieVO.getSectorVOList().get(i).getProportion() / startProportion) * startHeight;
+            if (showAnimation && animationType == extend) {
+                top = bottom - mCurrentValue * (bottom - top);
+            }
+            top -= radius;
+            dataRect.set((int) left, (int) top, (int) right, (int) (bottom - radius));
+            canvas.drawRect(dataRect, rectPaint);
+        }
+    }
+
+    /**
+     * 绘制扇形扇形,从第0个到第n个
+     */
+    private void drawSectorArc(Canvas canvas, int n) {
+        float top, arcRadius;
+        for (int i = 0; i < n; i++) {
+            if (i > 0) {
+                //第一张图正常画,之后逆时针旋转
+                //rotate是顺时针
+                canvas.rotate(360 - proportion, xPoint, yPoint); //以矩形中心点旋转图形
+            }
+            top = yPoint - (barPieVO.getSectorVOList().get(i).getProportion() / startProportion) * startHeight;
+            if (showAnimation && animationType == extend) {
+                top = bottom - mCurrentValue * (bottom - top);
+            }
+            top -= radius;
+            arcRadius = (yPoint - top + radius) / 2;
+            //设置扇形外接矩形,即圆形区域
+            arcRect = new RectF(xPoint - arcRadius, yPoint - arcRadius,
+                    xPoint + arcRadius, yPoint + arcRadius);
+            rectPaint.setStrokeWidth(yPoint - top - radius);
+            rectPaint.setColor(barPieVO.getSectorVOList().get(i).getColor());
+            canvas.drawArc(arcRect, 270, proportion, false, rectPaint);
+        }
+    }
+
+    /**
+     * 绘制扇形拉伸图片,从第0个到第n个
+     */
+    private void drawSectorBitmap(Canvas canvas, int n) {
+        float top;
+        Bitmap targetBitmap;
+        //周围是图片时
+        for (int i = 0; i < n; i++) {
+            if (i > 0) {
+                //第一张图正常画,之后逆时针旋转
+                //rotate是顺时针
+                canvas.rotate(360 - proportion, xPoint, yPoint); //以矩形中心点旋转图形
+            }
+            top = yPoint - (barPieVO.getSectorVOList().get(i).getProportion() / startProportion) * startHeight;
+            if (showAnimation && animationType == extend) {
+                top = bottom - mCurrentValue * (bottom - top);
+            }
+            top -= radius;
+            targetBitmap = Bitmap.createScaledBitmap(src, (int) (right - left), (int) (bottom - top), true);
+            canvas.drawBitmap(targetBitmap, left, top, rectPaint);
+        }
+    }
+
+    /**
+     * 绘制扇形部分拉伸图片,从第0个到第n个
+     */
+    private void drawSectorCutBitmap(Canvas canvas, int n) {
+        float top;
+        //新图片由未拉伸的bitmaph和拉伸之后的bitmap组合而成
+        Bitmap uncutBitmap, cuttedBitmap;
+        //周围是图片时
+        for (int i = 0; i < n; i++) {
+            if (i > 0) {
+                //第一张图正常画,之后逆时针旋转
+                //rotate是顺时针
+                canvas.rotate(360 - proportion, xPoint, yPoint); //以矩形中心点旋转图形
+            }
+            top = yPoint - (barPieVO.getSectorVOList().get(i).getProportion() / startProportion) * startHeight;
+            if (showAnimation && animationType == extend) {
+                top = bottom - mCurrentValue * (bottom - top);
+            }
+            top -= radius;
+            uncutBitmap = Bitmap.createBitmap(src, 0, 0, (int) (right - left), sectorPictureCutHeight);
+            Matrix m = new Matrix();
+            m.setScale(1, (yPoint - top - radius - sectorPictureCutHeight) / (startHeight - sectorPictureCutHeight - radius));
+            cuttedBitmap = Bitmap.createBitmap(src, 0, sectorPictureCutHeight, (int) (right - left), (int) (startHeight - sectorPictureCutHeight - radius), m, true);
+            canvas.drawBitmap(uncutBitmap, left, top, rectPaint);
+            canvas.drawBitmap(cuttedBitmap, left, top + sectorPictureCutHeight, rectPaint);
+        }
     }
 
     /**
@@ -358,18 +457,22 @@ public class BarPieGraph extends View {
         dataPaint.setColor(dataTextColor);
         int i = 0;
         //当前矩形中线相对于纵轴的中心点度数
-        float centerDegree;
+        float centerDegree, dataHeight;
         //中心坐标
         float startX, startY;
         for (SectorVO sectorVO : barPieVO.getSectorVOList()) {
-            centerDegree = 360 - proportion * i;
+            if (barPieVO.getSectorType() != BarPieVO.ARC) {
+                centerDegree = 360 - proportion * (i + 1);
+            } else {
+                centerDegree = 360 - proportion * (i + 0.4f);
+            }
             //获取名称文本大小
             dataPaint.getTextBounds(sectorVO.getDescription(), 0, sectorVO.getDescription().length(), dataTextRect);
 
-            rectHeight = startHeight * sectorVO.getProportion() / startProportion;
+            dataHeight = (startHeight) * sectorVO.getProportion() / startProportion + radius + startHeight / 3;
             //根据每个弧度的中心点坐标绘制数据
-            startX = calculatePosition(centerDegree, rectHeight)[0];
-            startY = calculatePosition(centerDegree, rectHeight)[1];
+            startX = calculatePosition(centerDegree, dataHeight)[0];
+            startY = calculatePosition(centerDegree, dataHeight)[1];
             //绘制名称数据
             canvas.drawText(sectorVO.getDescription(),
                     startX - dataTextRect.width(),
