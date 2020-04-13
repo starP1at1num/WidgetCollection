@@ -46,9 +46,9 @@
 <!--        app:data_text_size="20sp"-->
 <!--        app:animation_type="extend"/>-->
 
-    <com.example.widgetcollection.View.loading.GhostLoadingView
+    <com.example.widgetcollection.View.loading.BallRotateLoadingView
         android:layout_width="match_parent"
         android:layout_height="200dp"
-        app:duration="2000"/>
+        app:duration="1000"/>
 
 </LinearLayout>

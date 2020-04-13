@@ -55,7 +55,7 @@ public class BaseLoadingView extends View {
 
     private void setAttributesValue() {
         float textSizePx = typedArray.getDimension(
-                R.styleable.BasePieGraph_data_text_size, 50);
+                R.styleable.BaseLoadingView_data_text_size, 50);
 
         duration = typedArray.getInt(R.styleable.BaseLoadingView_duration, 1000);
 
