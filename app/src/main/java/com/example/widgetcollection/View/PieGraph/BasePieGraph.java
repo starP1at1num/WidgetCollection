@@ -44,7 +44,7 @@ public class BasePieGraph extends View {
 
     //背景颜色
     protected int background = Color.WHITE;
-    //背景颜色
+    //字体颜色
     protected int dataTextColor = Color.BLACK;
     // 原点坐标
     protected float xPoint;

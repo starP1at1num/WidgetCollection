@@ -80,4 +80,11 @@
             <enum name="extend" value="2"/>
         </attr>
     </declare-styleable>
+
+    <declare-styleable name="BaseLoadingView">
+        <attr name="duration" />
+        <attr name="data_text_color"/>
+        <attr name="data_text_size"/>
+        <attr name="text" format="string"/>
+    </declare-styleable>
 </resources>

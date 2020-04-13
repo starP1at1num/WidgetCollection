@@ -74,33 +74,33 @@ public class MainActivity extends AppCompatActivity {
 //        PieVO pieVO = new PieVO(test, list);
 //        pieGraphView.setData(pieVO);
 
-        test = BitmapFactory.decodeResource(getResources(), R.mipmap.gongjvren1hao);
-        test2 = BitmapFactory.decodeResource(getResources(), R.mipmap.gongjvren2hao);
-        barPieGraph = findViewById(R.id.pie_graph);
-        ArrayList<SectorVO> list = new ArrayList<>();
-        list.add(new SectorVO("数据1", 30, 0xFFFF9500));
-        list.add(new SectorVO("数据2", 35, 0xFF104E8B));
-        list.add(new SectorVO("数据3", 40, 0xFF6B8E23));
-        list.add(new SectorVO("数据4", 45, 0xFF8EE5EE));
-        list.add(new SectorVO("数据5", 50, 0xFFCD3333));
-        list.add(new SectorVO("数据6", 55, 0xFF495c6f));
-        list.add(new SectorVO("数据7", 60, 0xFF495c6f));
-        list.add(new SectorVO("数据8", 65, 0xFF495c6f));
-        list.add(new SectorVO("数据9", 70, 0xFF495c6f));
-        list.add(new SectorVO("数据10", 75, 0xFF495c6f));
-        list.add(new SectorVO("数据11", 80, 0xFF495c6f));
-        list.add(new SectorVO("数据12", 85, 0xFF495c6f));
-        list.add(new SectorVO("数据13", 90, 0xFF495c6f));
-        list.add(new SectorVO("数据14", 95, 0xFF495c6f));
-        list.add(new SectorVO("数据15", 100, 0xFF495c6f));
-        list.add(new SectorVO("数据16", 105, 0xFF495c6f));
-        list.add(new SectorVO("数据17", 110, 0xFF495c6f));
-        BarPieVO barPieVO = new BarPieVO.Builder()
-                .setCenter(test)
-                .setSector(100)
-                .setSectorList(list)
-                .create();
-        barPieGraph.setData(barPieVO);
+//        test = BitmapFactory.decodeResource(getResources(), R.mipmap.gongjvren1hao);
+//        test2 = BitmapFactory.decodeResource(getResources(), R.mipmap.gongjvren2hao);
+//        barPieGraph = findViewById(R.id.pie_graph);
+//        ArrayList<SectorVO> list = new ArrayList<>();
+//        list.add(new SectorVO("数据1", 30, 0xFFFF9500));
+//        list.add(new SectorVO("数据2", 35, 0xFF104E8B));
+//        list.add(new SectorVO("数据3", 40, 0xFF6B8E23));
+//        list.add(new SectorVO("数据4", 45, 0xFF8EE5EE));
+//        list.add(new SectorVO("数据5", 50, 0xFFCD3333));
+//        list.add(new SectorVO("数据6", 55, 0xFF495c6f));
+//        list.add(new SectorVO("数据7", 60, 0xFF495c6f));
+//        list.add(new SectorVO("数据8", 65, 0xFF495c6f));
+//        list.add(new SectorVO("数据9", 70, 0xFF495c6f));
+//        list.add(new SectorVO("数据10", 75, 0xFF495c6f));
+//        list.add(new SectorVO("数据11", 80, 0xFF495c6f));
+//        list.add(new SectorVO("数据12", 85, 0xFF495c6f));
+//        list.add(new SectorVO("数据13", 90, 0xFF495c6f));
+//        list.add(new SectorVO("数据14", 95, 0xFF495c6f));
+//        list.add(new SectorVO("数据15", 100, 0xFF495c6f));
+//        list.add(new SectorVO("数据16", 105, 0xFF495c6f));
+//        list.add(new SectorVO("数据17", 110, 0xFF495c6f));
+//        BarPieVO barPieVO = new BarPieVO.Builder()
+//                .setCenter(test)
+//                .setSector(100)
+//                .setSectorList(list)
+//                .create();
+//        barPieGraph.setData(barPieVO);
     }
 
     @Override

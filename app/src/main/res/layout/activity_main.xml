@@ -35,15 +35,20 @@
 <!--        app:contain_fault="true"-->
 <!--        app:duration="2000"/>-->
 
-    <com.example.widgetcollection.View.PieGraph.BarPieGraph
-        android:id="@+id/pie_graph"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:radius="50dp"
-        app:duration="3000"
-        app:center_text_size="20sp"
-        app:show_animation="true"
-        app:data_text_size="20sp"
-        app:animation_type="extend"/>
+<!--    <com.example.widgetcollection.View.PieGraph.BarPieGraph-->
+<!--        android:id="@+id/pie_graph"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        app:radius="50dp"-->
+<!--        app:duration="3000"-->
+<!--        app:center_text_size="20sp"-->
+<!--        app:show_animation="true"-->
+<!--        app:data_text_size="20sp"-->
+<!--        app:animation_type="extend"/>-->
+
+    <com.example.widgetcollection.View.loading.GhostLoadingView
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        app:duration="2000"/>
 
 </LinearLayout>
